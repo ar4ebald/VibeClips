@@ -11,6 +11,9 @@
   --vqc-live: #ff3b4e;
   --vqc-ok: #2fbf71;
   --vqc-warn: #e8a33a;
+  /* Своим слоем поверх подсветки YouTube (#cinematics, position: absolute), которая разливается под плеер. */
+  position: relative;
+  z-index: 1;
   margin: 12px 0 4px;
   padding: 12px 14px 14px;
   border-radius: 12px;
