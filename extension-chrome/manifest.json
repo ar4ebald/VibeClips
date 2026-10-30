@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Vibe Clips — клипы со стримов",
+  "version": "2.0.2",
+  "description": "Клипы из стримов и видео YouTube за секунды: выберите начало и конец — и скачайте MP4 в исходном качестве, без проигрывания.",
+  "icons": { "16": "icons/16.png", "32": "icons/32.png", "48": "icons/48.png", "128": "icons/128.png" },
+  "action": {
+    "default_title": "Клипы со стримов",
+    "default_popup": "popup.html",
+    "default_icon": { "16": "icons/16.png", "32": "icons/32.png" }
+  },
+  "permissions": ["storage", "declarativeNetRequestWithHostAccess"],
+  "host_permissions": ["https://www.youtube.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "exclude_matches": ["https://www.youtube.com/embed/*"],
+      "js": ["yt-capture.js"],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "exclude_matches": ["https://www.youtube.com/embed/*"],
+      "js": ["yt-panel.js"],
+      "css": ["yt-panel.css"],
+      "world": "MAIN",
+      "run_at": "document_idle"
+    }
+  ]
+}
